@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extraviadoscli"
+version = "0.0.1"
+description = "Use this web scraper to gather information about missing people from the official Prosecutor's Office websites of Mexico"
+readme = "README.md"
+authors = [{ name = "midir99", email = "midir99@proton.me" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["extraviados", "cli", "mexico"]
+dependencies = [
+    "beautifulsoup4 >= 4.11.1",
+    "python-slugify >= 6.1.2",
+    "requests >= 2.27.1",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "isort", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/midir99/extraviadoscli"
+
+[project.scripts]
+extraviadoscli = "extraviadoscli.__main__:main"

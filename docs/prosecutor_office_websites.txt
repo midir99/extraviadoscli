@@ -1,0 +1,170 @@
+CIUDAD DE MEXICO
+================
+
+Custom alerts ✅
+-------------
+Uses pagination to show their results:
+http GET 'https://personasdesaparecidas.fgjcdmx.gob.mx/listado.php?pa=1&re=100'
+pa = page number
+re = records shown per page
+
+Amber alerts ⛔
+------------
+Seems that all the posters are shown in a single page all at once:
+https://www.fgjcdmx.gob.mx/nuestros-servicios/servicios-la-ciudadania/alerta-amber-df
+
+
+
+AGUASCALIENTES
+==============
+
+Custom alerts ⛔
+-------------
+Seems that all the posters are shown in a single page all at once using a carousel:
+https://www.fiscalia-aguascalientes.gob.mx/
+
+Amber alerts ⛔
+------------
+Seems that all the posters are shown in a single page all at once using a carousel:
+https://www.fiscalia-aguascalientes.gob.mx/
+https://www.fiscalia-aguascalientes.gob.mx/Alerta_Amber.aspx
+
+
+
+BAJA CALIFORNIA
+===============
+
+Custom alerts ✅
+-------------
+They have an endpoint where you can POST a form to get data in JSON format:
+http --form POST https://www.fgebc.gob.mx/api/personasdesaparecidas/buscar \
+  Accept:text/html \
+  Content-Type:application/x-www-form-urlencoded \
+  nombre=Julia \
+  apaterno='' \
+  amaterno='' \
+  sexo='' \
+  edadini='' \
+  edadfin='' \
+  nac=''
+
+
+They also have an endpoint for non located people
+https://www.fgebc.gob.mx/localizadossinvida
+
+
+Amber alerts ⛔
+------------
+
+
+
+BAJA CALIFORNIA SUR
+===================
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ⛔
+------------
+
+
+
+CAMPECHE
+========
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ⛔
+------------
+
+
+
+COAHUILA DE ZARAGOZA
+====================
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ⛔
+------------
+
+
+
+COLIMA
+======
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ⛔
+------------
+
+
+
+CHIAPAS
+=======
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ⛔
+------------
+http://www.amberchiapas.org.mx/
+
+Alba alerts ⛔
+-----------
+https://www.fge.chiapas.gob.mx/protocoloalba
+
+Has visto a? alerts ✅
+-------------------
+They have their posters paginated:
+https://www.fge.chiapas.gob.mx/Servicios/Hasvistoa/Page/1
+
+CHIHUAHUA
+DURANGO
+GUANAJUATO
+
+
+GUERRERO
+========
+
+Custom alerts ⛔
+-------------
+
+Amber alerts ✅
+------------
+They use pagination:
+https://fiscaliaguerrero.gob.mx/category/amber/page/2/
+
+Alba alerts ✅
+-----------
+They use pagination:
+https://fiscaliaguerrero.gob.mx/category/alba/page/2/
+
+Has visto a? alerts ✅
+-------------------
+They use pagination:
+https://fiscaliaguerrero.gob.mx/hasvistoa/?pagina=2
+
+
+HIDALGO
+JALISCO
+MEXICO
+MICHOACAN_DE_OCAMPO
+MORELOS
+NAYARIT
+NUEVO_LEON
+OAXACA
+PUEBLA
+QUERETARO
+QUINTANA_ROO
+SAN_LUIS_POTOSI
+SINALOA
+SONORA
+TABASCO
+TAMAULIPAS
+TLAXCALA
+VERACRUZ_DE_IGNACIO_DE_LA_LLAVE
+YUCATAN
+ZACATECAS
