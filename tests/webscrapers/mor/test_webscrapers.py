@@ -15,7 +15,6 @@ def file2soup(filepath):
 
 
 class TestAmberAlertWebScraper:
-
     @pytest.fixture
     def ws(self):
         return mor.AmberAlertWebScraper()
@@ -48,7 +47,6 @@ class TestAmberAlertWebScraper:
         assert result == expected
 
     def test_extract_po_poster_url(self, monkeypatch, ws, post_1):
-
         def mock_retrieve_from_soup(page_url):
             return post_1
 
@@ -84,7 +82,6 @@ class TestAmberAlertWebScraper:
 
 
 class TestCustomAlertWebScraper:
-
     @pytest.fixture
     def ws(self):
         return mor.CustomAlertWebScraper()

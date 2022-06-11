@@ -35,21 +35,25 @@ class AmberAlertWebScraper(base.PaginatedContentWebScraper):
         try:
             mpp_data["po_post_url"] = soup.a.get("href", "").strip()
         except AttributeError as e:
-            logging.exception("unable to get the po_post_url from the article: %s", soup)
+            logging.exception(
+                "unable to get the po_post_url from the article: %s", soup
+            )
             raise e
 
         try:
             datestr = soup.find("span", class_="published").get_text().strip()
-            mpp_data["po_post_publication_date"] = commons.parsedate(datestr)
+            mpp_data["po_post_publication_date"] = commons.parse_date(datestr)
         except (AttributeError, ValueError) as e:
             logging.exception(
                 "unable to get the po_post_publication_date from the article: %s",
                 soup,
             )
-            mpp_data["po_post_publication_date"] = ""
+            mpp_data["po_post_publication_date"] = None
 
         try:
-            mpp_data["po_poster_url"] = self.extract_po_poster_url(mpp_data["po_post_url"])
+            mpp_data["po_poster_url"] = self.extract_po_poster_url(
+                mpp_data["po_post_url"]
+            )
         except Exception as e:
             logging.exception(
                 "unable to get the po_poster_url from the article: %s",
@@ -84,22 +88,26 @@ class CustomAlertWebScraper(base.PaginatedContentWebScraper):
         try:
             mpp_data["po_post_url"] = soup.h3.a.get("href", "").strip()
         except Exception as e:
-            logging.exception("unable to get the po_post_url from the article: %s", soup)
+            logging.exception(
+                "unable to get the po_post_url from the article: %s", soup
+            )
             raise e
 
         try:
-            datestr = soup.span.get_text().strip()
-            mpp_data["po_post_publication_date"] = commons.parsedate(datestr)
+            date_raw = soup.span.get_text().strip()
+            mpp_data["po_post_publication_date"] = commons.parse_date(date_raw)
         except Exception as e:
             logging.exception(
                 "unable to get the po_post_publication_date from the article: %s",
                 soup,
             )
-            mpp_data["po_post_publication_date"] = ""
+            mpp_data["po_post_publication_date"] = None
 
         try:
             mpp_data["po_poster_url"] = soup.img.get("src", "").strip()
-            mpp_data["po_poster_url"] = mpp_data["po_poster_url"].replace("-300x225", "")
+            mpp_data["po_poster_url"] = mpp_data["po_poster_url"].replace(
+                "-300x225", ""
+            )
         except Exception as e:
             logging.exception(
                 "unable to get the po_poster_url from the article: %s",

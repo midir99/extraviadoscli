@@ -13,7 +13,9 @@ def set_up_logging():
 
 def main():
     import sys
+
     from . import extraviadoscli
+
     set_up_logging()
     try:
         extraviadoscli.run()

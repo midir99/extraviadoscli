@@ -14,7 +14,9 @@ def humanize_pages(page_numbers: tuple[int, ...]) -> str:
     page_numbers_str = tuple(map(str, page_numbers))
     if page_numbers_len <= 15:
         return ", ".join(page_numbers_str)
-    return ", ".join(page_numbers_str[:3]) + ", ..., " + ", ".join(page_numbers_str[-3:])
+    return (
+        ", ".join(page_numbers_str[:3]) + ", ..., " + ", ".join(page_numbers_str[-3:])
+    )
 
 
 def humanize_page_range(page_from: int, page_to: int) -> str:
@@ -22,7 +24,6 @@ def humanize_page_range(page_from: int, page_to: int) -> str:
 
 
 class PaginatedContentWebScraper(abc.ABC):
-
     @abc.abstractmethod
     def make_url(self, page_number: int) -> str:
         ...

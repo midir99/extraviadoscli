@@ -8,6 +8,7 @@ import slugify
 
 SLUG_LEN = 50
 
+
 class StateChoices(enum.Enum):
     CIUDAD_DE_MEXICO = "MX-CMX"
     AGUASCALIENTES = "MX-AGU"

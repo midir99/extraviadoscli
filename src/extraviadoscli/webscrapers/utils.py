@@ -33,14 +33,14 @@ def retrieve_soup_from(page_url: str) -> bs4.BeautifulSoup:
         logging.error(
             "unable to retrieve the content from %s due to an error: %s",
             page_url,
-            str(e)
+            str(e),
         )
         raise e from e
     except Exception as e:
         logging.error(
             "unable to retrieve the content from %s due to an error: %s",
             page_url,
-            str(e)
+            str(e),
         )
         raise e from e
     try:

@@ -1,8 +1,8 @@
 import argparse
 import logging
 
-from .webscrapers import mor
 from . import renders
+from .webscrapers import gro, mor
 
 
 def parse_args() -> argparse.Namespace:
@@ -61,6 +61,18 @@ def parse_args() -> argparse.Namespace:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     mor.CustomAlertWebScraper.config_parser(mor_custom_parser)
+
+    # SUB-COMMANDS FOR WEB SCRAPERS OF GUERRERO
+    # =========================================
+
+    # Amber alerts
+    gro_amber_parser = subparsers.add_parser(
+        "gro-amber",
+        help="Web scraper for Amber alerts of Guerrero.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    gro.AmberAlertWebScraper.config_parser(gro_amber_parser)
+
     return parser.parse_args()
 
 

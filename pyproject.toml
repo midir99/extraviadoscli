@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "extraviadoscli"
-version = "0.0.1"
+version = "0.0.2"
 description = "Use this web scraper to gather information about missing people from the official Prosecutor's Office websites of Mexico"
 readme = "README.md"
 authors = [{ name = "midir99", email = "midir99@proton.me" }]
@@ -24,7 +24,12 @@ dependencies = [
 requires-python = ">=3.9"
 
 [project.optional-dependencies]
-dev = ["black", "isort", "pytest"]
+dev = [
+    "black",
+    "isort",
+    "pylint",
+    "pytest",
+]
 
 [project.urls]
 Homepage = "https://github.com/midir99/extraviadoscli"

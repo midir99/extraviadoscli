@@ -15,29 +15,30 @@ SPANISH_MONTHS_MAP = {
     "diciembre": 12,
 }
 
-def parsedate(datestr: str) -> datetime.date:
-    datestr = datestr.strip()
+
+def parse_date(date_raw: str) -> datetime.date:
+    date_raw = date_raw.strip()
     try:
-        month, day, year = map(lambda s: s.strip(), datestr.split(" "))
+        month, day, year = map(lambda s: s.strip(), date_raw.split(" "))
     except ValueError as e:
-        raise ValueError(f'Unable to parse the date "{datestr}"') from e
+        raise ValueError(f'Unable to parse the date "{date_raw}"') from e
 
     try:
         month = SPANISH_MONTHS_MAP[month]
     except KeyError as e:
-        raise ValueError(f'Unable to parse the date "{datestr}"') from e
+        raise ValueError(f'Unable to parse the date "{date_raw}"') from e
 
     try:
         day = int(day[:-1])
     except ValueError as e:
-        raise ValueError(f'Unable to parse the date "{datestr}"') from e
+        raise ValueError(f'Unable to parse the date "{date_raw}"') from e
 
     try:
         year = int(year)
     except ValueError as e:
-        raise ValueError(f'Unable to parse the date "{datestr}"') from e
+        raise ValueError(f'Unable to parse the date "{date_raw}"') from e
 
     try:
         return datetime.date(year, month, day)
     except ValueError as e:
-        raise ValueError(f'Unable to parse the date "{datestr}"') from e
+        raise ValueError(f'Unable to parse the date "{date_raw}"') from e

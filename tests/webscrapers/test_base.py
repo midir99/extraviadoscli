@@ -7,6 +7,7 @@ import pytest
 from extraviadoscli import mpp
 from extraviadoscli.webscrapers import base
 
+
 @pytest.mark.parametrize(
     "page_numbers,expected",
     [
@@ -47,33 +48,32 @@ def test_humanize_page_range(page_from, page_to, expected):
 
 def create_salomons_mpp_data():
     return {
-            "mp_name": "Salomon",
-            "mp_height": None,
-            "mp_weight": None,
-            "mp_physical_build": "",
-            "mp_complexion": "",
-            "mp_sex": mpp.SexChoices.OTHER.value,
-            "mp_dob": None,
-            "mp_age_when_disappeared": None,
-            "mp_eyes_description": "",
-            "mp_hair_description": "",
-            "mp_outfit_description": "",
-            "mp_identifying_characteristics": "",
-            "circumstances_behind_dissapearance": "",
-            "missing_from": "",
-            "missing_date": None,
-            "found": False,
-            "alert_type": mpp.AlertTypeChoices.OTHER.value,
-            "po_state": mpp.StateChoices.MORELOS.value,
-            "po_post_url": "https://example.com",
-            "po_post_publication_date": datetime.date(2022, 5, 27),
-            "po_poster_url": "https://example.com",
-            "is_multiple": False,
-        }
+        "mp_name": "Salomon",
+        "mp_height": None,
+        "mp_weight": None,
+        "mp_physical_build": "",
+        "mp_complexion": "",
+        "mp_sex": mpp.SexChoices.OTHER.value,
+        "mp_dob": None,
+        "mp_age_when_disappeared": None,
+        "mp_eyes_description": "",
+        "mp_hair_description": "",
+        "mp_outfit_description": "",
+        "mp_identifying_characteristics": "",
+        "circumstances_behind_dissapearance": "",
+        "missing_from": "",
+        "missing_date": None,
+        "found": False,
+        "alert_type": mpp.AlertTypeChoices.OTHER.value,
+        "po_state": mpp.StateChoices.MORELOS.value,
+        "po_post_url": "https://example.com",
+        "po_post_publication_date": datetime.date(2022, 5, 27),
+        "po_poster_url": "https://example.com",
+        "is_multiple": False,
+    }
 
 
 class DummyWebScraper(base.PaginatedContentWebScraper):
-
     def make_url(self, page_number):
         return "https://example.com"
 
@@ -88,7 +88,6 @@ class DummyWebScraper(base.PaginatedContentWebScraper):
 
 
 class TestPaginatedContentWebScraper:
-
     @pytest.fixture
     def ws(self):
         return DummyWebScraper()

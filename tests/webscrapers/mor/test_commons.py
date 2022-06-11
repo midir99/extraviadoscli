@@ -4,6 +4,7 @@ import pytest
 
 from extraviadoscli.webscrapers.mor import commons
 
+
 @pytest.mark.parametrize(
     "datestr,expected",
     [
@@ -22,5 +23,5 @@ from extraviadoscli.webscrapers.mor import commons
     ],
 )
 def test_parsedate(datestr, expected):
-    result = commons.parsedate(datestr)
+    result = commons.parse_date(datestr)
     assert result == expected
