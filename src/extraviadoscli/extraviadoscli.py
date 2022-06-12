@@ -73,6 +73,14 @@ def parse_args() -> argparse.Namespace:
     )
     gro.AmberAlertWebScraper.config_parser(gro_amber_parser)
 
+    # Alba alerts
+    gro_alba_parser = subparsers.add_parser(
+        "gro-alba",
+        help="Web scraper for Alba alerts of Guerrero.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    gro.AlbaAlertWebScraper.config_parser(gro_alba_parser)
+
     return parser.parse_args()
 
 
