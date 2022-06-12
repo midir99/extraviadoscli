@@ -67,8 +67,8 @@ class SexChoices(enum.Enum):
 class AlertTypeChoices(enum.Enum):
     ALBA = "AL"
     AMBER = "AM"
+    HAS_VISTO_A = "HV"
     ODISEA = "OD"
-    OTHER = "OT"
 
 
 def randomnumber(length: int):

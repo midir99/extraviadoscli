@@ -115,7 +115,7 @@ class CustomAlertWebScraper(base.PaginatedContentWebScraper):
             )
             mpp_data["po_poster_url"] = ""
 
-        mpp_data["alert_type"] = mpp.AlertTypeChoices.OTHER.value
+        mpp_data["alert_type"] = ""
         mpp_data["po_state"] = mpp.StateChoices.MORELOS.value
         return mpp_data
 

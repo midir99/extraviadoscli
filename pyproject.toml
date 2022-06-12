@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "extraviadoscli"
-version = "0.0.2"
+version = "0.0.3"
 description = "Use this web scraper to gather information about missing people from the official Prosecutor's Office websites of Mexico"
 readme = "README.md"
 authors = [{ name = "midir99", email = "midir99@proton.me" }]
