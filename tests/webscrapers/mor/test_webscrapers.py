@@ -115,7 +115,7 @@ class TestCustomAlertWebScraper:
             "po_post_url": "https://fiscaliamorelos.gob.mx/2020/12/14/zuri-saray-tapia-diaz/",
             "po_post_publication_date": datetime.date(2020, 12, 14),
             "po_poster_url": "https://fiscaliamorelos.gob.mx/wp-content/uploads/2020/12/ZURI-SARAY-TAPIA-DIAZ.jpeg",
-            "alert_type": mpp.AlertTypeChoices.OTHER.value,
+            "alert_type": "",
             "po_state": mpp.StateChoices.MORELOS.value,
         } == result
 

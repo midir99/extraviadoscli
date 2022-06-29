@@ -16,7 +16,6 @@ class CustomJSONEncoder(json.JSONEncoder):
 def as_csv(outfile, mpps, writeheaders=True):
     mpps = map(dataclasses.asdict, mpps)
     fieldnames = (
-        "slug",
         "mp_name",
         "mp_height",
         "mp_weight",

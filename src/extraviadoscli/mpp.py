@@ -1,12 +1,6 @@
 import dataclasses
 import datetime
 import enum
-import random
-import string
-
-import slugify
-
-SLUG_LEN = 50
 
 
 class StateChoices(enum.Enum):
@@ -51,17 +45,17 @@ class PhysicalBuildChoices(enum.Enum):
 
 
 class ComplexionChoices(enum.Enum):
-    BROWN = "BR"
-    LIGHT_BROWN = "LB"
-    DARK_BROWN = "DB"
-    WHITE = "WH"
-    BLACK = "BL"
+    VERY_LIGHT = "VL"
+    LIGHT = "L"
+    LIGHT_INTERMEDIATE = "LI"
+    DARK_INTERMEDIATE = "DI"
+    DARK = "D"
+    VERY_DARK = "VD"
 
 
 class SexChoices(enum.Enum):
     MALE = "M"
     FEMALE = "F"
-    OTHER = "O"
 
 
 class AlertTypeChoices(enum.Enum):
@@ -71,13 +65,8 @@ class AlertTypeChoices(enum.Enum):
     ODISEA = "OD"
 
 
-def randomnumber(length: int):
-    return "".join(random.choice(string.digits) for _ in range(length))
-
-
 @dataclasses.dataclass
 class MissingPersonPoster:
-    slug: str = dataclasses.field(init=False, compare=False)
     mp_name: str
     mp_height: int | None = None
     mp_weight: int | None = None
@@ -100,24 +89,3 @@ class MissingPersonPoster:
     po_post_publication_date: datetime.date | None = None
     po_poster_url: str = ""
     is_multiple: bool = False
-
-    def __post_init__(self):
-        # We will add 2 dashes to the final slug between the slug contents, so we
-        # substract 2 from the total character count
-        words = SLUG_LEN - 2
-
-        name_len = int(words * 0.7)
-        md_len = int(words * 0.2)
-        rn_len = int(words * 0.1)
-
-        missing_date = self.missing_date or self.po_post_publication_date
-        if missing_date is None:
-            missing_date = ""
-        else:
-            missing_date = missing_date.strftime("%Y-%m-%d")
-
-        rn = randomnumber(rn_len)
-
-        self.slug = slugify.slugify(
-            f"{self.mp_name[:name_len]}-{missing_date[:md_len]}-{rn}"
-        )
